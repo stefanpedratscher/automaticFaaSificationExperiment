@@ -1,5 +1,7 @@
 'use strict';
 
+const _ = require('lodash')
+
 var external = require('./external');
 
 exports.fraction = function(event, res){
@@ -7,10 +9,10 @@ exports.fraction = function(event, res){
 	var to = parseInt(event.params.to);
 	var num_queens = parseInt(event.params.num_queens);
 	var solutions = 0;
-	for(var iter = from; iter < to; iter++){
+	for(var iter of _.range(from, to)){
 		var code = iter;
 	        var queen_rows = [];
-	        for(var i = 0; i < num_queens; i++){
+	        for(var i of _.range(0, num_queens)){
 	                queen_rows[i] = code % num_queens;
 	                code = Math.floor(code/num_queens);
 	        }
