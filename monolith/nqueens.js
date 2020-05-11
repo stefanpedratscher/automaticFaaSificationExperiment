@@ -1,22 +1,6 @@
 'use strict';
 
-var QUEEN_ROWS_PREFIX = "VALID QUEEN PLACEMENT: ";
-
-var tools = require('./tools');
-
-exports.acceptable = function(num_queens, queen_rows){
-	for(var i = 0; i < num_queens; i++){
-		for(var j = i + 1; j < num_queens; j++){
-			if(queen_rows[i] == queen_rows[j]){
-				return false;
-			}
-			if(queen_rows[i] - queen_rows[j] == i - j || queen_rows[i] - queen_rows[j] == j - i){
-				return false;
-			}
-		}
-	}
-	return true;
-}
+var external = require('./external');
 
 exports.fraction = function(event, res){
 	var from = parseInt(event.params.from);
@@ -30,10 +14,10 @@ exports.fraction = function(event, res){
 	                queen_rows[i] = code % num_queens;
 	                code = Math.floor(code/num_queens);
 	        }
-		// call another function
-		if(this.acceptable(num_queens, queen_rows)){
-			// access to global variable and require package
-			tools.printer(QUEEN_ROWS_PREFIX.concat(queen_rows));
+		// call frunction another file
+		if(external.acceptable(num_queens, queen_rows)){
+			// TODO call npm package
+			console.log(queen_rows);
 		        solutions += 1;
 		}
 	}
