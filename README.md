@@ -1,5 +1,12 @@
 # automaticFaaSificationExperiment
 
+### Setup
+
+```sh
+cd automaticFaaSificationExperiment
+npm install
+```
+
 ### Usage
 
 ```
