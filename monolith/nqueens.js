@@ -4,10 +4,10 @@ const _ = require('lodash')
 
 var external = require('./external');
 
-exports.fraction = function(event, res){
-	var from = parseInt(event.params.from);
-	var to = parseInt(event.params.to);
-	var num_queens = parseInt(event.params.num_queens);
+exports.fraction = async function(ev, res){
+	var from = parseInt(ev.params.from);
+	var to = parseInt(ev.params.to);
+	var num_queens = parseInt(ev.params.num_queens);
 	var solutions = 0;
 	for(var iter of _.range(from, to)){
 		var code = iter;
@@ -37,5 +37,5 @@ if(args.length > 4){
 	//console.log("Setting num_queens=", num_queens, ", from", from, ", to=", to);
 }
 
-var res = this.fraction({params: {from: from, to: to, num_queens: num_queens}});
-console.log(res);
+this.fraction({params: {from: from, to: to, num_queens: num_queens}})
+	.then(console.log)
