@@ -18,5 +18,6 @@
   "homepage": "https://github.com/stefanpedratscher/automaticFaaSificationExperiment#readme",
   "dependencies": {
     "lodash": "^4.17.15"
-  }
+  },
+  "loutdir": "."
 }
