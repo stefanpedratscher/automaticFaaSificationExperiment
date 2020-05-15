@@ -1,0 +1,15 @@
+{
+  "name": "fraction",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "zip -r deploypackage.zip * ; aws lambda create-function   --function-name fraction  --runtime nodejs10.x     --handler index.handler          --role arn:aws:iam::735406098573:role/lambdaexecute      --zip-file fileb://deploypackage.zip;          rm deploypackage.zip",
+    "update": "zip -r deploypackage.zip * ;         aws lambda update-function-code          --function-name fraction --zip-file fileb://deploypackage.zip;   rm deploypackage.zip"
+  },
+  "author": "",
+  "dependencies": {
+    "lodash": "latest"
+  }
+}

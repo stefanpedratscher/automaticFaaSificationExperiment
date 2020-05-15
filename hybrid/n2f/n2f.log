@@ -1,0 +1,514 @@
+
+ _____________________ Welcome to _____________________
+|                                                      |
+|  _   _           _      ____  _____           ____   |
+| | \ | | ___   __| | ___|___ \|  ___|_ _  __ _/ ___|  |
+| |  \| |/ _ \ / _` |/ _ \ __) | |_ / _` |/ _` \___ \  |
+| | |\  | (_) | (_| |  __// __/|  _| (_| | (_| |___)|  |
+| |_| \_|\___/ \__,_|\___|_____|_|  \__,_|\__,_|____/  |
+|                                   Node.js framework  |
+|______________________________________________________|
+Initilializing...
+[0m[1mInitializing modules...[0m
+
+[0m[1mInitializing the backend...[0m
+
+[0m[1mInitializing provider plugins...[0m
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, it is recommended to add version = "..." constraints to the
+corresponding provider blocks in configuration, with the constraint strings
+suggested below.
+
+* provider.google: version = "~> 3.19"
+* provider.random: version = "~> 2.2"
+
+[0m[1m[32mTerraform has been successfully initialized![0m[32m[0m
+[0m[32m
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.[0m
+Provider: aws
+Region: eu-central-1
+-----------------------------------------------------------------------
+Converted app will be avaiable in output/../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//
+Before execution run 'npm install request' inside output/../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//
+-----------------------------------------------------------------------
+
+Analizing ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//
+DEBUG: Loading requires in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///external.js
+DEBUG: Extracting requires from file /external.js
+DEBUG: Was found 1 requires on file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///external.js
+DEBUG: Requires found in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///external.js ⬇ 
+ ["lodash.js"]
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//lodash.js not found
+DEBUG: Extracting functions from file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///external.js
+Function acceptable is elegible to be published on FaaS
+DEBUG: Functions found in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///external.js ⬇ 
+[{"name":"acceptable","parameters":["num_queens","queen_rows"],"algoritm":"\n\tfor(var i of _.range(0, num_queens)){\n\t\tfor(var j of _.range(i + 1, num_queens)){\n\t\t\tif(queen_rows[i] == queen_rows[j]){\n\t\t\t\treturn false;\n\t\t\t}\n\t\t\tif(queen_rows[i] - queen_rows[j] == i - j || queen_rows[i] - queen_rows[j] == j - i){\n\t\t\t        return false;\n\t\t\t}\n\t\t}\n\t}\n\treturn true;\n"}]
+DEBUG: File output/../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///external.js updated
+DEBUG: Replaced code for function acceptable in file output/../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///external.js is ⬇ 
+
+'use strict';
+
+const _ = require('lodash')
+
+    
+
+##!##acceptable/##!##
+DEBUG: Creating zipfile for function acceptable
+DEBUG: New function code generated for aws: 
+          
+exports.acceptable = (num_queens,queen_rows,callback) => {           
+
+	for(var i of _.range(0, num_queens)){
+		for(var j of _.range(i + 1, num_queens)){
+			if(queen_rows[i] == queen_rows[j]){
+				//returnfalse;
+			}
+			if(queen_rows[i] - queen_rows[j] == i - j || queen_rows[i] - queen_rows[j] == j - i){
+			        return false;
+			}
+		}
+	}
+	return true;
+           
+  const done = (err, res) => callback(null, {           
+    statusCode: err ? '400' : '200',           
+    body: err ? err.message : JSON.stringify(res),           
+    headers: {'Content-Type': 'application/json',           
+    },           
+  });           
+  done(null,result);           
+};
+DEBUG: File tmp/acceptable.js.zip was created
+DEBUG: Function acceptable is beeing destroyed on aws
+[0m[1mmodule.node2faas-aws.aws_iam_role.iam_for_lambda: Refreshing state... [id=iam_for_lambda-eu-central-1-acceptable][0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_rest_api.rest: Refreshing state... [id=vilewela4m][0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_resource.proxy: Refreshing state... [id=jgaijq][0m
+[0m[1mmodule.node2faas-aws.aws_lambda_permission.apigw: Refreshing state... [id=AllowAPIGatewayInvoke][0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy_root: Refreshing state... [id=agm-vilewela4m-6r99plyy9j-ANY][0m
+[0m[1mmodule.node2faas-aws.aws_lambda_function.function: Refreshing state... [id=node2faas-acceptable][0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy: Refreshing state... [id=agm-vilewela4m-jgaijq-ANY][0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda_root: Refreshing state... [id=agi-vilewela4m-6r99plyy9j-ANY][0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda: Refreshing state... [id=agi-vilewela4m-jgaijq-ANY][0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_deployment.deploy: Refreshing state... [id=7k2rxd][0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_deployment.deploy: Destroying... [id=7k2rxd][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_deployment.deploy: Destruction complete after 1s[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda_root: Destroying... [id=agi-vilewela4m-6r99plyy9j-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda: Destroying... [id=agi-vilewela4m-jgaijq-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda: Destruction complete after 0s[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda_root: Destruction complete after 0s[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy: Destroying... [id=agm-vilewela4m-jgaijq-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy_root: Destroying... [id=agm-vilewela4m-6r99plyy9j-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_iam_role.iam_for_lambda: Destroying... [id=iam_for_lambda-eu-central-1-acceptable][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy_root: Destruction complete after 1s[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy: Destruction complete after 1s[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_resource.proxy: Destroying... [id=jgaijq][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_resource.proxy: Destruction complete after 0s[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_rest_api.rest: Destroying... [id=vilewela4m][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_rest_api.rest: Destruction complete after 0s[0m[0m
+[0m[1mmodule.node2faas-aws.aws_iam_role.iam_for_lambda: Destruction complete after 2s[0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mResource targeting is in effect[0m
+
+[0mYou are creating a plan with the -target option, which means that the result
+of this plan may not represent all of the changes requested by the current
+configuration.
+		
+The -target option is not for routine use, and is provided only for
+exceptional situations such as recovering from errors or mistakes, or when
+Terraform specifically suggests to use it as part of an error message.
+[0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mApplied changes may be incomplete[0m
+
+[0mThe plan was created with the -target option in effect, so some changes
+requested in the configuration may have been ignored and the output values may
+not be fully updated. Run the following command to verify that no other
+changes are pending:
+    terraform plan
+	
+Note that the -target option is not suitable for routine use, and is provided
+only for exceptional situations such as recovering from errors or mistakes, or
+when Terraform specifically suggests to use it as part of an error message.
+[0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mInterpolation-only expressions are deprecated[0m
+
+[0m  on modules/aws/main.tf line 32, in resource "aws_lambda_function" "function":
+  32:   role             = [4m"${aws_iam_role.iam_for_lambda.arn}"[0m
+[0m
+Terraform 0.11 and earlier required all non-constant expressions to be
+provided via interpolation syntax, but this pattern is now deprecated. To
+silence this warning, remove the "${ sequence from the start and the }"
+sequence from the end of this expression, leaving just the inner expression.
+
+Template interpolation syntax is still used to construct strings from
+expressions when the template includes multiple interpolation sequences or a
+mixture of literal strings and interpolations. This deprecation applies only
+to templates that consist entirely of a single interpolation sequence.
+
+(and 40 more similar warnings elsewhere)
+[0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mQuoted references are deprecated[0m
+
+[0m  on modules/aws/main.tf line 83, in resource "aws_api_gateway_deployment" "deploy":
+  83:     [4m"aws_api_gateway_integration.lambda"[0m,
+[0m
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+(and one more similar warning elsewhere)
+[0m[0m
+[0m[1m[32m
+Destroy complete! Resources: 8 destroyed.[0m
+Publishing function acceptable on aws...
+[0m[1mmodule.node2faas-aws.aws_api_gateway_rest_api.rest: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_iam_role.iam_for_lambda: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_rest_api.rest: Creation complete after 1s [id=on1d8n2zm8][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_resource.proxy: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_permission.apigw: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy_root: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy_root: Creation complete after 0s [id=agm-on1d8n2zm8-ntp6gcx678-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_iam_role.iam_for_lambda: Creation complete after 1s [id=iam_for_lambda-eu-central-1-acceptable][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_function.function: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_resource.proxy: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_permission.apigw: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_function.function: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_function.function: Creation complete after 15s [id=node2faas-acceptable][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda_root: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_resource.proxy: Creation complete after 15s [id=8m2p0f][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda_root: Creation complete after 1s [id=agi-on1d8n2zm8-ntp6gcx678-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy: Creation complete after 1s [id=agm-on1d8n2zm8-8m2p0f-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda: Creation complete after 0s [id=agi-on1d8n2zm8-8m2p0f-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_deployment.deploy: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_deployment.deploy: Creation complete after 1s [id=2bh5x3][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_permission.apigw: Creation complete after 17s [id=AllowAPIGatewayInvoke][0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mResource targeting is in effect[0m
+
+[0mYou are creating a plan with the -target option, which means that the result
+of this plan may not represent all of the changes requested by the current
+configuration.
+		
+The -target option is not for routine use, and is provided only for
+exceptional situations such as recovering from errors or mistakes, or when
+Terraform specifically suggests to use it as part of an error message.
+[0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mApplied changes may be incomplete[0m
+
+[0mThe plan was created with the -target option in effect, so some changes
+requested in the configuration may have been ignored and the output values may
+not be fully updated. Run the following command to verify that no other
+changes are pending:
+    terraform plan
+	
+Note that the -target option is not suitable for routine use, and is provided
+only for exceptional situations such as recovering from errors or mistakes, or
+when Terraform specifically suggests to use it as part of an error message.
+[0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mInterpolation-only expressions are deprecated[0m
+
+[0m  on modules/aws/main.tf line 32, in resource "aws_lambda_function" "function":
+  32:   role             = [4m"${aws_iam_role.iam_for_lambda.arn}"[0m
+[0m
+Terraform 0.11 and earlier required all non-constant expressions to be
+provided via interpolation syntax, but this pattern is now deprecated. To
+silence this warning, remove the "${ sequence from the start and the }"
+sequence from the end of this expression, leaving just the inner expression.
+
+Template interpolation syntax is still used to construct strings from
+expressions when the template includes multiple interpolation sequences or a
+mixture of literal strings and interpolations. This deprecation applies only
+to templates that consist entirely of a single interpolation sequence.
+
+(and 40 more similar warnings elsewhere)
+[0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mQuoted references are deprecated[0m
+
+[0m  on modules/aws/main.tf line 83, in resource "aws_api_gateway_deployment" "deploy":
+  83:     [4m"aws_api_gateway_integration.lambda"[0m,
+[0m
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+(and one more similar warning elsewhere)
+[0m[0m
+[0m[1m[32m
+Apply complete! Resources: 10 added, 0 changed, 0 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+aws_url = https://on1d8n2zm8.execute-api.eu-central-1.amazonaws.com/acceptable[0m
+Function acceptable was created in: https://on1d8n2zm8.execute-api.eu-central-1.amazonaws.com/acceptable
+DEBUG: Function acceptable was publicated
+DEBUG: The new code for function acceptable is => 
+
+    
+exports.acceptable = function(num_queens,queen_rows){     
+  /**** Function converted by Node2FaaS ****/     
+  let stringParam = '';     
+  if( num_queens.params !== undefined ){                             
+  for (var i in num_queens.params){                             
+    stringParam += "&"+i+"="+num_queens.params[i];                             
+  }                             
+}
+if( queen_rows.params !== undefined ){                             
+  for (var i in queen_rows.params){                             
+    stringParam += "&"+i+"="+queen_rows.params[i];                             
+  }                             
+}
+ 	  
+  let uri = "https://on1d8n2zm8.execute-api.eu-central-1.amazonaws.com/acceptable"+"?n=y"+stringParam;     
+	let request = require('request');     
+	request(uri, function (error, response, body) {     
+    if (error){     
+       res.json(error);     
+    } else {     
+    	res.json(body);  	  
+    }     
+  });     
+}
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///external.js was updated with new code for function acceptable
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueens.js was copied to output/../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueens.js
+DEBUG: Loading requires in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueens.js
+DEBUG: Extracting requires from file /nqueens.js
+DEBUG: Was found 2 requires on file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueens.js
+DEBUG: Requires found in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueens.js ⬇ 
+ ["lodash.js","external.js"]
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//lodash.js not found
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js found
+DEBUG: Loading requires in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js
+DEBUG: Extracting requires from file external.js
+DEBUG: Was found 1 requires on file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js
+DEBUG: Requires found in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js ⬇ 
+ ["lodash.js"]
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//lodash.js not found
+DEBUG: Extracting functions from file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js there`s no functions
+DEBUG: Extracting functions from file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueens.js
+DEBUG: Function fraction isn't elegible to be published on FaaS
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueens.js there`s no functions
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueensMod.js was copied to output/../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueensMod.js
+DEBUG: Loading requires in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueensMod.js
+DEBUG: Extracting requires from file /nqueensMod.js
+DEBUG: Was found 2 requires on file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueensMod.js
+DEBUG: Requires found in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueensMod.js ⬇ 
+ ["lodash.js","external.js"]
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//lodash.js not found
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js found
+DEBUG: Loading requires in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js
+DEBUG: Extracting requires from file external.js
+DEBUG: Was found 1 requires on file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js
+DEBUG: Requires found in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js ⬇ 
+ ["lodash.js"]
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//lodash.js not found
+DEBUG: Extracting functions from file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js there`s no functions
+DEBUG: Extracting functions from file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueensMod.js
+Function fractionMod is elegible to be published on FaaS
+DEBUG: Functions found in file ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueensMod.js ⬇ 
+[{"name":"fractionMod","parameters":["event","res"],"algoritm":"\n\tvar num_queens = parseInt(event.params.num_queens);\n\tvar solutions = 0;\n\tfor(var iter of _.range(parseInt(event.params.from), parseInt(event.params.to))){\n\t\tvar code = iter;\n\t        var queen_rows = [];\n\t        for(var i of _.range(0, num_queens)){\n\t                queen_rows[i] = code % num_queens;\n\t                code = Math.floor(code/num_queens);\n\t        }\n\t\t// call frunction another file\n\t\tif(external.acceptable(num_queens, queen_rows)){\n\t\t\t// TODO call npm package\n\t\t\tconsole.log(queen_rows);\n\t\t        solutions += 1;\n\t\t}\n\t}\n\treturn solutions;\n}\n\nvar num_queens = -1;\nvar from = -1;\nvar to = -1;\nvar args = process.argv;\nif(args.length > 4){\n\tnum_queens = parseInt(args[2]);\n\tfrom = parseInt(args[3]);\n\tto = parseInt(args[4]);\n\t//console.log(\"Setting num_queens=\", num_queens, \", from\", from, \", to=\", to);\n}\n\nvar res = this.fractionMod({params: {from: from, to: to, num_queens: num_queens}"}]
+DEBUG: File output/../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueensMod.js updated
+DEBUG: Replaced code for function fractionMod in file output/../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueensMod.js is ⬇ 
+
+'use strict';
+
+const _ = require('lodash')
+
+var external = require('./external');
+
+
+##!##fractionMod/##!##;);
+console.log(res);
+DEBUG: Creating zipfile for function fractionMod
+DEBUG: New function code generated for aws: 
+          
+exports.fractionMod = (event,res,callback) => {           
+
+	var num_queens = parseInt(event.queryStringParameters['num_queens']);
+	var solutions = 0;
+	for(var iter of _.range(parseInt(event.queryStringParameters['from']), parseInt(event.queryStringParameters['to']))){
+		var code = iter;
+	        var queen_rows = [];
+	        for(var i of _.range(0, num_queens)){
+	                queen_rows[i] = code % num_queens;
+	                code = Math.floor(code/num_queens);
+	        }
+		// call frunction another file
+		if(external.acceptable(num_queens, queen_rows)){
+			// TODO call npm package
+			console.log(queen_rows);
+		        solutions += 1;
+		}
+	}
+	//returnsolutions;
+}
+
+var num_queens = -1;
+var from = -1;
+var to = -1;
+var args = process.argv;
+if(args.length > 4){
+	num_queens = parseInt(args[2]);
+	from = parseInt(args[3]);
+	to = parseInt(args[4]);
+	//console.log("Setting num_queens=", num_queens, ", from", from, ", to=", to);
+}
+
+var res = this.fractionMod({queryStringParameters: {from: from, to: to, num_queens: num_queens}           
+  const done = (err, res) => callback(null, {           
+    statusCode: err ? '400' : '200',           
+    body: err ? err.message : JSON.stringify(res),           
+    headers: {'Content-Type': 'application/json',           
+    },           
+  });           
+  done(null,result);           
+};
+DEBUG: File tmp/fractionMod.js.zip was created
+Publishing function fractionMod on aws...
+[0m[1mmodule.node2faas-aws.aws_api_gateway_rest_api.rest: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_iam_role.iam_for_lambda: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_rest_api.rest: Creation complete after 1s [id=6pk9hgg11f][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_resource.proxy: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy_root: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_permission.apigw: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_iam_role.iam_for_lambda: Creation complete after 1s [id=iam_for_lambda-eu-central-1-fractionMod][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy_root: Creation complete after 0s [id=agm-6pk9hgg11f-ts557f9kpk-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_function.function: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_resource.proxy: Creation complete after 1s [id=xaobnq][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_method.proxy: Creation complete after 0s [id=agm-6pk9hgg11f-xaobnq-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_permission.apigw: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_function.function: Still creating... [10s elapsed][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_permission.apigw: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_function.function: Still creating... [20s elapsed][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_function.function: Creation complete after 23s [id=node2faas-fractionMod][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda_root: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda_root: Creation complete after 1s [id=agi-6pk9hgg11f-ts557f9kpk-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_integration.lambda: Creation complete after 1s [id=agi-6pk9hgg11f-xaobnq-ANY][0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_deployment.deploy: Creating...[0m[0m
+[0m[1mmodule.node2faas-aws.aws_api_gateway_deployment.deploy: Creation complete after 1s [id=92ptdj][0m[0m
+[0m[1mmodule.node2faas-aws.aws_lambda_permission.apigw: Creation complete after 28s [id=AllowAPIGatewayInvoke][0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mResource targeting is in effect[0m
+
+[0mYou are creating a plan with the -target option, which means that the result
+of this plan may not represent all of the changes requested by the current
+configuration.
+		
+The -target option is not for routine use, and is provided only for
+exceptional situations such as recovering from errors or mistakes, or when
+Terraform specifically suggests to use it as part of an error message.
+[0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mApplied changes may be incomplete[0m
+
+[0mThe plan was created with the -target option in effect, so some changes
+requested in the configuration may have been ignored and the output values may
+not be fully updated. Run the following command to verify that no other
+changes are pending:
+    terraform plan
+	
+Note that the -target option is not suitable for routine use, and is provided
+only for exceptional situations such as recovering from errors or mistakes, or
+when Terraform specifically suggests to use it as part of an error message.
+[0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mInterpolation-only expressions are deprecated[0m
+
+[0m  on modules/aws/main.tf line 32, in resource "aws_lambda_function" "function":
+  32:   role             = [4m"${aws_iam_role.iam_for_lambda.arn}"[0m
+[0m
+Terraform 0.11 and earlier required all non-constant expressions to be
+provided via interpolation syntax, but this pattern is now deprecated. To
+silence this warning, remove the "${ sequence from the start and the }"
+sequence from the end of this expression, leaving just the inner expression.
+
+Template interpolation syntax is still used to construct strings from
+expressions when the template includes multiple interpolation sequences or a
+mixture of literal strings and interpolations. This deprecation applies only
+to templates that consist entirely of a single interpolation sequence.
+
+(and 40 more similar warnings elsewhere)
+[0m[0m
+[33m
+[1m[33mWarning: [0m[0m[1mQuoted references are deprecated[0m
+
+[0m  on modules/aws/main.tf line 83, in resource "aws_api_gateway_deployment" "deploy":
+  83:     [4m"aws_api_gateway_integration.lambda"[0m,
+[0m
+In this context, references are expected literally rather than in quotes.
+Terraform 0.11 and earlier required quotes, but quoted references are now
+deprecated and will be removed in a future version of Terraform. Remove the
+quotes surrounding this reference to silence this warning.
+
+(and one more similar warning elsewhere)
+[0m[0m
+[0m[1m[32m
+Apply complete! Resources: 10 added, 0 changed, 0 destroyed.[0m
+[0m[1m[32m
+Outputs:
+
+aws_url = https://6pk9hgg11f.execute-api.eu-central-1.amazonaws.com/fractionMod[0m
+Function fractionMod was created in: https://6pk9hgg11f.execute-api.eu-central-1.amazonaws.com/fractionMod
+DEBUG: Function fractionMod was publicated
+DEBUG: The new code for function fractionMod is => 
+
+    
+exports.fractionMod = function(event,res){     
+  /**** Function converted by Node2FaaS ****/     
+  let stringParam = '';     
+  if( event.params !== undefined ){                             
+  for (var i in event.params){                             
+    stringParam += "&"+i+"="+event.params[i];                             
+  }                             
+}
+if( res.params !== undefined ){                             
+  for (var i in res.params){                             
+    stringParam += "&"+i+"="+res.params[i];                             
+  }                             
+}
+ 	  
+  let uri = "https://6pk9hgg11f.execute-api.eu-central-1.amazonaws.com/fractionMod"+"?n=y"+stringParam;     
+	let request = require('request');     
+	request(uri, function (error, response, body) {     
+    if (error){     
+       res.json(error);     
+    } else {     
+    	res.json(body);  	  
+    }     
+  });     
+}
+DEBUG: File ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///nqueensMod.js was updated with new code for function fractionMod
+DEBUG: File (untouched - just copied to output): ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///package.json
+DEBUG: File (untouched - just copied to output): ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith///workflow.sh
+Finished!
+Results
+Files processed: 5
+DEBUG: ../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//external.js,../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//nqueens.js,../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//nqueensMod.js,../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//package.json,../../git/automaticFaaSificationExperiment/hybrid/n2f/monolith//workflow.sh
+Functions found: 3
+Functions elegibles: 2
+Functions not elegibles: 1
+DEBUG: {"name":"acceptable","parameters":["num_queens","queen_rows"],"algoritm":"\n\tfor(var i of _.range(0, num_queens)){\n\t\tfor(var j of _.range(i + 1, num_queens)){\n\t\t\tif(queen_rows[i] == queen_rows[j]){\n\t\t\t\treturn false;\n\t\t\t}\n\t\t\tif(queen_rows[i] - queen_rows[j] == i - j || queen_rows[i] - queen_rows[j] == j - i){\n\t\t\t        return false;\n\t\t\t}\n\t\t}\n\t}\n\treturn true;\n"}
+DEBUG: {"name":"fraction","parameters":["async ev","res"],"algoritm":"\n\tvar from = parseInt(ev.params.from);\n\tvar to = parseInt(ev.params.to);\n\tvar num_queens = parseInt(ev.params.num_queens);\n\tvar solutions = 0;\n\tfor(var iter of _.range(from, to)){\n\t\tvar code = iter;\n\t        var queen_rows = [];\n\t        for(var i of _.range(0, num_queens)){\n\t                queen_rows[i] = code % num_queens;\n\t                code = Math.floor(code/num_queens);\n\t        }\n\t\t// call frunction another file\n\t\tif(external.acceptable(num_queens, queen_rows)){\n\t\t\t// TODO call npm package\n\t\t\tconsole.log(queen_rows);\n\t\t        solutions += 1;\n\t\t}\n\t}\n\treturn solutions;\n}\n\nvar num_queens = -1;\nvar from = -1;\nvar to = -1;\nvar args = process.argv;\nif(args.length > 4){\n\tnum_queens = parseInt(args[2]);\n\tfrom = parseInt(args[3]);\n\tto = parseInt(args[4]);\n\t//console.log(\"Setting num_queens=\", num_queens, \", from\", from, \", to=\", to);\n}\n\nthis.fraction({params: {from: from, to: to, num_queens: num_queens}"}
+DEBUG: {"name":"fractionMod","parameters":["event","res"],"algoritm":"\n\tvar num_queens = parseInt(event.params.num_queens);\n\tvar solutions = 0;\n\tfor(var iter of _.range(parseInt(event.params.from), parseInt(event.params.to))){\n\t\tvar code = iter;\n\t        var queen_rows = [];\n\t        for(var i of _.range(0, num_queens)){\n\t                queen_rows[i] = code % num_queens;\n\t                code = Math.floor(code/num_queens);\n\t        }\n\t\t// call frunction another file\n\t\tif(external.acceptable(num_queens, queen_rows)){\n\t\t\t// TODO call npm package\n\t\t\tconsole.log(queen_rows);\n\t\t        solutions += 1;\n\t\t}\n\t}\n\treturn solutions;\n}\n\nvar num_queens = -1;\nvar from = -1;\nvar to = -1;\nvar args = process.argv;\nif(args.length > 4){\n\tnum_queens = parseInt(args[2]);\n\tfrom = parseInt(args[3]);\n\tto = parseInt(args[4]);\n\t//console.log(\"Setting num_queens=\", num_queens, \", from\", from, \", to=\", to);\n}\n\nvar res = this.fractionMod({params: {from: from, to: to, num_queens: num_queens}"}

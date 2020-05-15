@@ -1,0 +1,23 @@
+{
+  "name": "automaticfaasificationexperiment",
+  "version": "0.0.1",
+  "description": "",
+  "main": "monolith/nqueens.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefanpedratscher/automaticFaaSificationExperiment.git"
+  },
+  "author": "DPS UIBK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stefanpedratscher/automaticFaaSificationExperiment/issues"
+  },
+  "homepage": "https://github.com/stefanpedratscher/automaticFaaSificationExperiment#readme",
+  "dependencies": {
+    "lodash": "^4.17.15"
+  },
+  "loutdir": "."
+}
