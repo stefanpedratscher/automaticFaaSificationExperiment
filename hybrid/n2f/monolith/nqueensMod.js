@@ -7,7 +7,7 @@ var external = require('./external');
 exports.fractionMod = function(event, res){
 	var num_queens = parseInt(event.params.num_queens);
 	var solutions = 0;
-	for(var iter of _.range(parseInt(event.params.from), parseInt(event.params.to))){
+	for(var iter=parseInt(event.params.from); iter<parseInt(event.params.to); iter++){
 		var code = iter;
 	        var queen_rows = [];
 	        for(var i of _.range(0, num_queens)){
@@ -16,7 +16,6 @@ exports.fractionMod = function(event, res){
 	        }
 		// call frunction another file
 		if(external.acceptable(num_queens, queen_rows)){
-			// TODO call npm package
 			console.log(queen_rows);
 		        solutions += 1;
 		}

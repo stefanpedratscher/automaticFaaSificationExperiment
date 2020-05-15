@@ -3,7 +3,7 @@ exports.fractionMod = (event,res,callback) => {
 
 	var num_queens = parseInt(event.queryStringParameters['num_queens']);
 	var solutions = 0;
-	for(var iter of _.range(parseInt(event.queryStringParameters['from']), parseInt(event.queryStringParameters['to']))){
+	for(var iter=parseInt(event.queryStringParameters['from']); iter<parseInt(event.queryStringParameters['to']); iter++){
 		var code = iter;
 	        var queen_rows = [];
 	        for(var i of _.range(0, num_queens)){
@@ -12,7 +12,6 @@ exports.fractionMod = (event,res,callback) => {
 	        }
 		// call frunction another file
 		if(external.acceptable(num_queens, queen_rows)){
-			// TODO call npm package
 			console.log(queen_rows);
 		        solutions += 1;
 		}

@@ -11,7 +11,7 @@ exports.fraction = async function (ev, res) {
 		var to = parseInt(ev.params.to);
 		var num_queens = parseInt(ev.params.num_queens);
 		var solutions = 0;
-		for(var iter of _.range(from, to)){
+		for(var iter=from; iter<to; iter++){
 			var code = iter;
 						var queen_rows = [];
 						for(var i of _.range(0, num_queens)){
@@ -20,7 +20,6 @@ exports.fraction = async function (ev, res) {
 						}
 			// call frunction another file
 			if(external.acceptable(num_queens, queen_rows)){
-				// TODO call npm package
 				console.log(queen_rows);
 							solutions += 1;
 			}
