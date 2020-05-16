@@ -1,0 +1,10 @@
+Number of queens = 9
+Number of workers = 1
+NodeJs code = nqueens.js
+Starting worker 0 (from=0, to=387420489)...
+Waiting for all workers...
+Found solutions: 352
+
+real	2m37.736s
+user	2m35.678s
+sys	0m1.968s
