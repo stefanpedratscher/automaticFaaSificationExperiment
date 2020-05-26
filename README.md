@@ -12,8 +12,8 @@
 │   │   │   └── ...
 │   │   ├── n2f.log             # execution logs of n2f              
 │   │   └── ...
-│   └── x2f                     # x2FaaS
-│   │   ├── lambdas             # generated lambda by x2f 
+│   └── daf                     # dependency aware faaSification
+│   │   ├── lambdas             # generated lambda by daf 
 │   │   ├── monolith            # monolithic application
 │   │   └── ...
 ├── monolith                    # local execution
