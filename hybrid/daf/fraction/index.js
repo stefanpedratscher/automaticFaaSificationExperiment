@@ -1,13 +1,11 @@
 const external = require("./external.js")
 const _ = require("lodash")
 
-exports.handler = async (event, context) => {
-  let ev = event.ev
-  let res = event.res
+module.exports = (event) => {
+  const from        = parseInt(event.from)
+  const to          = parseInt(event.to)
+  const num_queens  = parseInt(event.num_queens)
 
-  var from = parseInt(ev.params.from)
-  var to = parseInt(ev.params.to)
-  var num_queens = parseInt(ev.params.num_queens)
   var solutions = 0
   for (var iter=from; iter<to; iter++) {
     var code = iter
@@ -22,5 +20,5 @@ exports.handler = async (event, context) => {
       solutions += 1
     }
   }
-  context.succeed(solutions)
+  return { solutions: solutions }
 }
